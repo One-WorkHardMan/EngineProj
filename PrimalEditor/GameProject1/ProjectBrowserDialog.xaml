@@ -1,0 +1,30 @@
+﻿<Window x:Class="PrimalEditor.GameProject1.ProjectBrowserDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrimalEditor.GameProject1"
+        mc:Ignorable="d" ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
+        Title="ProjectBrowserDialog" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="auto"/> 
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <ToggleButton Content="Open Project" x:Name="openprojectButton" FontSize="32" Click="OnToggleButton_Click"/>
+            <ToggleButton Content="Create Project" x:Name="createprojectButton" FontSize="32" Margin="30 0 0 0" Click="OnToggleButton_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="browserContent">
+            <Border Width="800">
+                <local:NewProjectView></local:NewProjectView>
+            </Border>
+            <Border Width="800">
+                <local:OpenProjectView></local:OpenProjectView>
+            </Border>
+            
+
+        </StackPanel>
+
+    </Grid>
+</Window>
