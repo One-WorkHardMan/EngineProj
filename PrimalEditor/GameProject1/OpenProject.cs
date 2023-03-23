@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrimalEditor.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -42,12 +43,23 @@ namespace PrimalEditor.GameProject1
 
         // 读项目的 创建数据
         public static void ReadProjectData() {
-
+            if (File.Exists(_projectDataPath)) {
+                var projects = Serializer.FromFile<ProjectDataList>(_projectDataPath).Projects.OrderBy(x => x.Date);
+                _projects.Clear();
+                foreach (var project in projects) {
+                    if (File.Exists(project.FullPath)) { 
+                        project.Icon = File.ReadAllBytes($@"{project.ProjectPath}\.primal\Icon.png");
+                        project.Screenshot = File.ReadAllBytes($@"{project.ProjectPath}\.primal\Screenshot.png");
+                        _projects.Add(project);
+                    }
+                }
+            }
         }
         private static void WriteProjectData()
         {
-                        
-
+            // 按照时间进行排序
+            var projects = _projects.OrderBy(x => x.Date).ToList();
+            Serializer.ToFiles(projects, _projectDataPath);
 
             
         }
