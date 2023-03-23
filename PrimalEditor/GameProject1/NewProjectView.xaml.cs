@@ -38,6 +38,9 @@ namespace PrimalEditor.GameProject1
             var win = Window.GetWindow(this);
             if (!string.IsNullOrEmpty(projectpath)) {
                 dialogResult = true;
+
+                //调用open函数，读取项目列表的数据然后再更新时间降序写回去
+                var project = OpenProject.Open(new ProjectData() { ProjectPath = projectpath ,ProjectName = vm.ProjectName});
             }
             win.DialogResult = dialogResult;
             win.Close();

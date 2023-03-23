@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\
 PrimalEditor
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-E:\Proj\VS_Proj\Engine\PrimalEditor\App.xaml
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\App.xaml
 4-724284649
 
 14-1532766465
-194-200944676
+194-2004305220
 GameProject1\NewProjectView.xaml;GameProject1\OpenProjectView.xaml;GameProject1\ProjectBrowserDialog.xaml;MainWindow.xaml;
 
 True
