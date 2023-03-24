@@ -20,13 +20,14 @@ namespace PrimalEditor.GameProject1
         public string ProjectPath { get; set; }
         [DataMember]
         public DateTime Date { get; set; }
-        [DataMember]
-        public string FullPath { get => $"{ProjectPath}{ProjectName}{Project.Extension}"; }
+       
+        public string FullPath { get => $"{ProjectPath}{ProjectName}{Project.Extension}";  }
         public Byte[] Icon { get; set; }
         public Byte[] Screenshot { get; set; }
     }
     [DataContract]
     public class ProjectDataList {
+
         [DataMember]
         public List<ProjectData> Projects { get; set; }
     }
@@ -44,7 +45,12 @@ namespace PrimalEditor.GameProject1
         // 读项目的 创建数据
         public static void ReadProjectData() {
             if (File.Exists(_projectDataPath)) {
-                var projects = Serializer.FromFile<ProjectDataList>(_projectDataPath).Projects.OrderBy(x => x.Date);
+
+                // 妈的，这个b人写的有问题，cnm的！
+                var projects = Serializer.FromFile<List<ProjectData>>(_projectDataPath).OrderByDescending(x => x.Date);
+
+                //var projects = projectsList.Projects;
+
                 _projects.Clear();
                 foreach (var project in projects) {
                     if (File.Exists(project.FullPath)) { 
@@ -89,7 +95,7 @@ namespace PrimalEditor.GameProject1
             {
                 // 判断文件夹是否存在
                 if (!Directory.Exists(_applicationDataPath)) Directory.CreateDirectory(_applicationDataPath);
-                _projectDataPath = $@"{_applicationDataPath}\ProjectData.xml";
+                _projectDataPath = $@"{_applicationDataPath}ProjectData.xml";
                 Projects = new ReadOnlyObservableCollection<ProjectData>(_projects);
                 ReadProjectData();
             }
