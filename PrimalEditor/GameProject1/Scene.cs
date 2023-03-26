@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -23,6 +24,18 @@ namespace PrimalEditor.GameProject1
         [DataMember]
         public Project Project { get; private set; }
 
+        /*        public bool IsActive => Project.ActivarteScene == this;*/
+
+        private bool _isactive;
+        [DataMember]
+        public bool IsActive { get=>_isactive;
+            set {
+                if (_isactive != value) { 
+                    _isactive= value;
+                    OnPropertyChanged(nameof(IsActive));
+                }
+            }
+        }  
         public Scene(Project project,string name) { 
             Project = project;
             Name = name;

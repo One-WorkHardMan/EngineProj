@@ -5,6 +5,7 @@
 		<Path>{1}</Path>
 		<Scenes>
 			<Scene z:Id="i2">
+				<IsActive>true</IsActive>
 				<Project z:Ref="i1"/>
 				<_name>Default Sene</_name>
 			</Scene>

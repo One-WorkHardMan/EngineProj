@@ -29,6 +29,10 @@ namespace PrimalEditor.GameProject1
         {
             OpenSelectedProject();
         }
+        private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenSelectedProject();
+        }
 
         private void OpenSelectedProject()
         {
@@ -42,14 +46,12 @@ namespace PrimalEditor.GameProject1
             if (project!=null)
             {
                 dialogResult = true;
+                win.DataContext = project;
             }
             win.DialogResult = dialogResult;
             win.Close();
         }
 
-        private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            OpenSelectedProject();
-        }
+
     }
 }

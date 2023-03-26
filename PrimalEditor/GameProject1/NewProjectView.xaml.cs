@@ -34,13 +34,15 @@ namespace PrimalEditor.GameProject1
 
             bool dialogResult = false;
 
-            //获取当前窗口
+            //Window.GetWindow(this);获取父级别窗口
             var win = Window.GetWindow(this);
             if (!string.IsNullOrEmpty(projectpath)) {
                 dialogResult = true;
 
                 //调用open函数，读取项目列表的数据然后再更新时间降序写回去
                 var project = OpenProject.Open(new ProjectData() { ProjectPath = projectpath ,ProjectName = vm.ProjectName});
+                // 将打开的project项目数据绑定给父级别窗口
+                win.DataContext = project;
             }
             win.DialogResult = dialogResult;
             win.Close();

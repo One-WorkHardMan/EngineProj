@@ -24,6 +24,7 @@ namespace PrimalEditor
         public MainWindow()
         {
             InitializeComponent();
+            //窗口加载的时候调用，MaindowLoaded
             Loaded += MainWindow_Loaded;
         }
 
@@ -36,11 +37,15 @@ namespace PrimalEditor
 
         private void OpenProjiectDialog() {
             var projectBrowser = new ProjectBrowserDialog();
-            if (projectBrowser.ShowDialog() == false)
+            if (projectBrowser.ShowDialog() == false|| projectBrowser.DataContext==null)
             {
                 Application.Current.Shutdown();
             }
-            else { };
+            else {
+
+                Project.Current?.Unload();
+                DataContext = projectBrowser.DataContext;
+            };
         }
     }
 }

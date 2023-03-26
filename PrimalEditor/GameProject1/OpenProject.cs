@@ -84,7 +84,7 @@ namespace PrimalEditor.GameProject1
                 _projects.Add(project);
             }
             WriteProjectData();
-            return null;
+            return Project.Load(project.FullPath);
         }
 
 
