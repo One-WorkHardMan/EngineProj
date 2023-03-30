@@ -29,16 +29,16 @@ namespace PrimalEditor.GameProject1
 
         private ObservableCollection<Scene> _scenes = new ObservableCollection<Scene>();
 
-        public ReadOnlyObservableCollection<Scene> Scenes { get; }
+        public ReadOnlyObservableCollection<Scene> Scenes { get; private set; }
 
         private Scene _activateScene;
 
-        public Scene ActivarteScene {
+        public Scene ActivateScene {
             get =>_activateScene;
             set {
                 if (_activateScene != value) {
                     _activateScene = value;
-                    OnPropertyChanged(nameof(ActivarteScene));
+                    OnPropertyChanged(nameof(ActivateScene));
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace PrimalEditor.GameProject1
             return Serializer.FromFile<Project>(file);
         }
 
-        public static void Unload() { 
+        public void Unload() { 
             
         }
         public static void Save(Project project) {
@@ -66,7 +66,7 @@ namespace PrimalEditor.GameProject1
                 OnPropertyChanged(nameof(Scenes));
             }
             // 序列化完成之后，_scenes中已经被从.primal文件读取的scene类填满，然后将里面默认激活的scene的场景绑定到ActivarteScene
-            ActivarteScene = Scenes.FirstOrDefault(x => x.IsActive);
+            ActivateScene = Scenes.FirstOrDefault(x => x.IsActive);
         }
 
         public Project(string name,string path) {

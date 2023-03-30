@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrimalEditor.GameProject1"
         mc:Ignorable="d" ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
-        Title="ProjectBrowserDialog" Height="450" Width="800">
+        Title="ProjectBrowserDialog" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"/> 

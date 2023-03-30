@@ -87,3 +87,5 @@ D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\refint\
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\PrimalEditor.pdb
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\PrimalEditor.genruntimeconfig.cache
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\ref\PrimalEditor.dll
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.g.cs
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.baml

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\App.xaml
-4-724284649
+593622448
 
-14-1532766465
+15-231635864
 194-2004305220
-GameProject1\NewProjectView.xaml;GameProject1\OpenProjectView.xaml;GameProject1\ProjectBrowserDialog.xaml;MainWindow.xaml;
+Editors\WorldEditor\WorldEditorView.xaml;GameProject1\NewProjectView.xaml;GameProject1\OpenProjectView.xaml;GameProject1\ProjectBrowserDialog.xaml;MainWindow.xaml;
 
 True
 

@@ -1,6 +1,7 @@
 ﻿using PrimalEditor.GameProject1;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,11 @@ namespace PrimalEditor
             Loaded -= MainWindow_Loaded;
             OpenProjiectDialog();
          /*   throw new NotImplementedException();*/
+        }
+
+        private void OnMainWindowClosing(object sender,CancelEventArgs e) {
+            Closing -= OnMainWindowClosing;
+            Project.Current?.Unload();
         }
 
         private void OpenProjiectDialog() {
