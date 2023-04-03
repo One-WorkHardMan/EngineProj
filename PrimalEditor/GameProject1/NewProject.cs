@@ -32,8 +32,8 @@ namespace PrimalEditor.GameProject1
 
     }
     class NewProject : ViewModelBase {
-        //private readonly string _templatePath = @"E:\Proj\VS_Proj\Engine\PrimalEditor\ProjectTemplate";
-        private readonly string _templatePath = @"D:\Project\VStudio_Proj\EngineProj\PrimalEditor\ProjectTemplate";
+       private readonly string _templatePath = @"E:\Proj\VS_Proj\Engine\PrimalEditor\ProjectTemplate";
+       //private readonly string _templatePath = @"D:\Project\VStudio_Proj\EngineProj\PrimalEditor\ProjectTemplate";
         //这里是项目设置的原因，写成..\相对地址就出错了
 
 

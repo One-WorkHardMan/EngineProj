@@ -43,6 +43,20 @@ namespace PrimalEditor.GameProject1
             }
         }
 
+        // 添加一个场景函数：
+        public void AddScene(String sceneName) { 
+            Debug.Assert(sceneName != null);
+            _scenes.Add(new Scene(this, sceneName));
+
+        }
+        //移除某个场景：
+        public void RemoveScene(Scene scene)
+        {
+            Debug.Assert(_scenes.Contains(scene));
+            _scenes.Remove(scene);
+        }
+
+
         // 当前窗口下的数据上下文转换成了Project对象
         public static Project Current => Application.Current.MainWindow.DataContext as Project;
 

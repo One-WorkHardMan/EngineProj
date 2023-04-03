@@ -41,7 +41,7 @@ namespace PrimalEditor.GameProject1
 
             bool dialogResult = false;
 
-            //获取当前窗口
+            //获取父级 窗口
             var win = Window.GetWindow(this);
             if (project!=null)
             {

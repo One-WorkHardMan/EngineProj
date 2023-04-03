@@ -42,6 +42,7 @@ namespace PrimalEditor
         }
 
         private void OpenProjiectDialog() {
+
             var projectBrowser = new ProjectBrowserDialog();
             if (projectBrowser.ShowDialog() == false|| projectBrowser.DataContext==null)
             {

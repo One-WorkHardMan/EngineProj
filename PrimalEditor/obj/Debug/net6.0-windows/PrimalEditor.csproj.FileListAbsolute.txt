@@ -89,3 +89,7 @@ D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\PrimalE
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\ref\PrimalEditor.dll
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.g.cs
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.baml
+E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.g.cs
+E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.baml
+E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.g.cs
+E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.baml
