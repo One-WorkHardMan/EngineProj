@@ -9,6 +9,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace PrimalEditor.GameProject1
 {
@@ -43,14 +44,21 @@ namespace PrimalEditor.GameProject1
             }
         }
 
+        public static UndoRedo undoRedo { get; } = new UndoRedo();
+
+        //设置指令
+        public ICommand AddScene { get; private set; }
+        public ICommand RemoveScene { get; private set; }
+
+
         // 添加一个场景函数：
-        public void AddScene(String sceneName) { 
+        private void AddSceneInternal(String sceneName) { 
             Debug.Assert(sceneName != null);
             _scenes.Add(new Scene(this, sceneName));
 
         }
         //移除某个场景：
-        public void RemoveScene(Scene scene)
+        private void RemoveSceneInternal(Scene scene)
         {
             Debug.Assert(_scenes.Contains(scene));
             _scenes.Remove(scene);
@@ -79,6 +87,35 @@ namespace PrimalEditor.GameProject1
                 Scenes = new ReadOnlyObservableCollection<Scene>(_scenes);
                 OnPropertyChanged(nameof(Scenes));
             }
+            // 对于add操作的 取消和重复 应该怎么执行？
+            ///
+            /// 取消，就是要把加上的场景给remove；
+            /// 重复，就是要把场景又加到_scenes 的对应的Index上；
+            /// 
+            AddScene = new RelayCommand<object>(x => {
+                AddSceneInternal($"New Scene{_scenes.Count+1}");
+                var newscene = _scenes.Last();
+                var sceneIndex = _scenes.Count- 1;
+                undoRedo.Add(new UndoRedoAction(
+                    () => RemoveSceneInternal(newscene),
+                    () => _scenes.Insert(sceneIndex,newscene),
+                    $"Add{newscene.Name}"
+                    ));
+            });
+
+            RemoveScene = new RelayCommand<Scene>(
+                x => {
+                    var sceneIndex = _scenes.IndexOf(x);
+                    RemoveSceneInternal(x);
+
+                    undoRedo.Add(new UndoRedoAction(
+                        ()=>_scenes.Insert(sceneIndex,x),
+                        ()=>RemoveSceneInternal(x),
+                        $"Remove{x.Name}"
+                        ));
+                }
+                );
+
             // 序列化完成之后，_scenes中已经被从.primal文件读取的scene类填满，然后将里面默认激活的scene的场景绑定到ActivarteScene
             ActivateScene = Scenes.FirstOrDefault(x => x.IsActive);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PrimalEditor.Utilities
 {
-    interface IUndoRedo
+    public interface IUndoRedo
     {
         string Name { get; }
 
@@ -17,11 +17,15 @@ namespace PrimalEditor.Utilities
         void Redo();
     }
 
+    //实现IUndoRedo接口：
+
     public class UndoRedoAction : IUndoRedo {
 
         private Action _undoAction;
         private Action _redoAction;
 
+        
+        // 操作的名称
         public string Name { get; }
 
         public void Redo() => _redoAction();
@@ -35,15 +39,13 @@ namespace PrimalEditor.Utilities
 
         public UndoRedoAction(Action undoAction, Action redoAction, string name):this(name)
         {
-            
             _undoAction = undoAction;
             _redoAction = redoAction;
-            
         }
     }
 
 
-    class UndoRedo
+    public class UndoRedo
     {
         private readonly ObservableCollection<IUndoRedo> _redolist = new ObservableCollection<IUndoRedo>();
         private readonly ObservableCollection<IUndoRedo> _undolist = new ObservableCollection<IUndoRedo>();
@@ -57,6 +59,7 @@ namespace PrimalEditor.Utilities
             _redolist.Clear();  
         }
 
+        // 把需要撤销的 指令 加到 undolist 集合中！！
         public void Add(IUndoRedo cmd) {
             _undolist.Add(cmd);
             _redolist.Clear();
