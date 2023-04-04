@@ -29,6 +29,8 @@ namespace PrimalEditor.Editors
 
         private void OnButtonClick(object sender,RoutedEventArgs e) { 
             var vm = DataContext as Project;
+
+            vm.AddScene("New Scene"+vm.Scenes.Count);
             
         }
     }
