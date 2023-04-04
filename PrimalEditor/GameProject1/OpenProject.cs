@@ -96,8 +96,10 @@ namespace PrimalEditor.GameProject1
                 // 判断文件夹是否存在
                 if (!Directory.Exists(_applicationDataPath)) Directory.CreateDirectory(_applicationDataPath);
                 _projectDataPath = $@"{_applicationDataPath}ProjectData.xml";
-                Projects = new ReadOnlyObservableCollection<ProjectData>(_projects);
+               
                 ReadProjectData();
+
+                Projects = new ReadOnlyObservableCollection<ProjectData>(_projects);
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,20 @@ namespace PrimalEditor.GameProject1
         public OpenProjectView()
         {
             InitializeComponent();
+
+            //this.DataContext = new OpenProject();
+
+            //在Open窗口初始化的时候 ，设置 第一个项目元素为Focous；一直报错，不知道哪里错了、、、
+
+
+/*            Loaded += (s, e) =>
+            {
+                var item = projectsListBox.ItemContainerGenerator
+                .ContainerFromIndex(projectsListBox.SelectedIndex) as ListBoxItem;
+                item?.Focus();
+            };*/
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

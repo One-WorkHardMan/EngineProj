@@ -17,11 +17,12 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="browserContent">
             <Border Width="800">
-                <local:NewProjectView></local:NewProjectView>
-            </Border>
-            <Border Width="800">
                 <local:OpenProjectView></local:OpenProjectView>
             </Border>
+            <Border Width="800">
+                <local:NewProjectView></local:NewProjectView>
+            </Border>
+
             
 
         </StackPanel>
