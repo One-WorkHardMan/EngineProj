@@ -93,3 +93,7 @@ E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor
 E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.baml
 E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.g.cs
 E:\Proj\VS_Proj\Engine\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.baml
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.g.cs
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.baml
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.g.cs
+D:\Project\VStudio_Proj\EngineProj\PrimalEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.baml

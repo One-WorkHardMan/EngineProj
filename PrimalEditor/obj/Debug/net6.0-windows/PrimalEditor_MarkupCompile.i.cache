@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Project\VStudio_Proj\EngineProj\PrimalEditor\App.xaml
-6-130839992
+7-889878245
 
-181822259457
+19-73853548
 194-2004305220
-Editors\WorldEditor\ProjectLayoutView.xaml;Editors\WorldEditor\WorldEditorView.xaml;GameProject1\NewProjectView.xaml;GameProject1\OpenProjectView.xaml;GameProject1\ProjectBrowserDialog.xaml;MainWindow.xaml;
+Editors\WorldEditor\ProjectLayoutView.xaml;Editors\WorldEditor\WorldEditorView.xaml;GameProject1\NewProjectView.xaml;GameProject1\OpenProjectView.xaml;GameProject1\ProjectBrowserDialog.xaml;MainWindow.xaml;Utilities\UndoRedoView.xaml;
 
-False
+True
 

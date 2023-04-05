@@ -50,6 +50,9 @@ namespace PrimalEditor.GameProject1
         public ICommand AddScene { get; private set; }
         public ICommand RemoveScene { get; private set; }
 
+        public ICommand Undo { get; private set; }
+        public ICommand Redo { get; private set; }
+
 
         // 添加一个场景函数：
         private void AddSceneInternal(String sceneName) { 
@@ -107,14 +110,20 @@ namespace PrimalEditor.GameProject1
                 x => {
                     var sceneIndex = _scenes.IndexOf(x);
                     RemoveSceneInternal(x);
-
                     undoRedo.Add(new UndoRedoAction(
                         ()=>_scenes.Insert(sceneIndex,x),
                         ()=>RemoveSceneInternal(x),
                         $"Remove{x.Name}"
                         ));
-                }
+                },x=>!x.IsActive //限制如果这个场景正在active，则不能被remove。
                 );
+
+
+            Undo = new RelayCommand<object>(x => undoRedo.Undo());
+            Redo = new RelayCommand<object>(x => undoRedo.Redo());
+
+
+
 
             // 序列化完成之后，_scenes中已经被从.primal文件读取的scene类填满，然后将里面默认激活的scene的场景绑定到ActivarteScene
             ActivateScene = Scenes.FirstOrDefault(x => x.IsActive);

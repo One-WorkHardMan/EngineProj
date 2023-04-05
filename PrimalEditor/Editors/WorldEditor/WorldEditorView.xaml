@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrimalEditor.Editors"
+             xmlns:utl ="clr-namespace:PrimalEditor.Utilities"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Undo"  Command="{Binding Undo}"></Button>
+            <Button Content="Redo"  Command="{Binding Redo}" Margin="10,0"></Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -15,9 +25,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
-
             </Grid.RowDefinitions>
             <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+             <utl:UndoRedoView DataContext="{Binding undoRedo}" Grid.Row="1"/>
         </Grid>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
         <Grid Grid.Column="1" Margin="5,0,0,0">
@@ -29,5 +39,6 @@
             <local:ProjectLayoutView></local:ProjectLayoutView>
         </Grid>
 
+         </Grid>
     </Grid>
 </UserControl>

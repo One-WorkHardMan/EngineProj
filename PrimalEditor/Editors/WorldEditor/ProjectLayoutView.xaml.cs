@@ -27,11 +27,14 @@ namespace PrimalEditor.Editors
             InitializeComponent();
         }
 
-        private void OnButtonClick(object sender,RoutedEventArgs e) { 
+/*       
+           private void OnButtonClick(object sender,RoutedEventArgs e) { 
             var vm = DataContext as Project;
 
             vm.AddScene("New Scene"+vm.Scenes.Count);
-            
-        }
+        }*/
+        
+
+
     }
 }

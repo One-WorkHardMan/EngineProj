@@ -22,9 +22,6 @@
             <Border Width="800">
                 <local:NewProjectView></local:NewProjectView>
             </Border>
-
-            
-
         </StackPanel>
 
     </Grid>

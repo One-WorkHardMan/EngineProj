@@ -59,12 +59,13 @@ namespace PrimalEditor.Utilities
             _redolist.Clear();  
         }
 
-        // 把需要撤销的 指令 加到 undolist 集合中！！
+        // 把需要撤销的 指令 加到 undolist 集合中！！并且每次添加新的cmd会把redolist清空。
         public void Add(IUndoRedo cmd) {
             _undolist.Add(cmd);
             _redolist.Clear();
         }
 
+        //Undo就是 Ctrl z
         public void Undo() {
             if (_undolist.Any()) {
                 var cmd = _undolist.Last();
@@ -74,6 +75,8 @@ namespace PrimalEditor.Utilities
                 _redolist.Insert(0,cmd);
             }
         }
+
+        //Redo 就是取消刚才的取消。
         public void Redo() {
             if (_redolist.Any()) {
                 var cmd = _redolist.First();

@@ -61,7 +61,7 @@ namespace PrimalEditor.GameProject1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PrimalEditor;V1.0.0.0;component/gameproject1/openprojectview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PrimalEditor;component/gameproject1/openprojectview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GameProject1\OpenProjectView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
