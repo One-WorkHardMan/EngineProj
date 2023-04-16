@@ -1,10 +1,15 @@
-﻿using System;
+﻿using PrimalEditor.Components;
+using PrimalEditor.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.DirectoryServices;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PrimalEditor.GameProject1
 {
@@ -35,7 +40,49 @@ namespace PrimalEditor.GameProject1
                     OnPropertyChanged(nameof(IsActive));
                 }
             }
-        }  
+        }
+        [DataMember(Name = nameof(GameEntities))]
+        private readonly ObservableCollection<GameEntity> _gameentities = new ObservableCollection<GameEntity>();
+        public ReadOnlyCollection<GameEntity> GameEntities { get; private set; }
+
+        private void AddGameEntity(GameEntity entity) { 
+            Debug.Assert(entity != null);
+            _gameentities.Add(entity);
+        }
+
+        private void RemoveGameEntity(GameEntity entity)
+        {
+            Debug.Assert(entity != null);   
+            _gameentities.Remove(entity);
+        }
+
+
+        public ICommand AddGameEntityCommand { get; private set; }
+
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext streamingContext) {
+            if (_gameentities != null) {
+                GameEntities = new ReadOnlyCollection<GameEntity>(_gameentities);
+                OnPropertyChanged(nameof(GameEntities));
+            }
+
+            AddGameEntityCommand = new RelayCommand<GameEntity>(x =>
+            {
+                AddGameEntity(x);
+                var entityIndex = _gameentities.Count - 1;
+                Project.undoRedo.Add(
+                    new UndoRedoAction(
+                        ()=>RemoveGameEntity(x),
+                        ()=>_gameentities.Insert(entityIndex,x),
+                        $"add{x.Name} to {Name}"
+                        )
+                    );
+            });
+
+            
+        }
+
         public Scene(Project project,string name) { 
             Project = project;
             Name = name;

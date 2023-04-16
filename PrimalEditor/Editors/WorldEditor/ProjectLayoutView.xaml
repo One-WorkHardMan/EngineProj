@@ -32,6 +32,7 @@
                                     <Button Content ="Remove" Command="{Binding DataContext.RemoveSceneCommand,RelativeSource={RelativeSource AncestorType=UserControl}}"
                                             CommandParameter="{Binding}"  Margin="100,0,0,0"  Focusable="False" Background="Red"
                                             />
+                                    <Button Content="+"/>
                                 </Grid>
                             </Expander.Header>
                             <Border Background="Blue" Height="100"></Border>

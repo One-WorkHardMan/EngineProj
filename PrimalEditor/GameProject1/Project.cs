@@ -56,13 +56,13 @@ namespace PrimalEditor.GameProject1
         public ICommand SaveCommand { get; private set; }
 
         // 添加一个场景函数：
-        private void AddSceneInternal(String sceneName) { 
+        private void AddScene(String sceneName) { 
             Debug.Assert(sceneName != null);
             _scenes.Add(new Scene(this, sceneName));
 
         }
         //移除某个场景：
-        private void RemoveSceneInternal(Scene scene)
+        private void RemoveScene(Scene scene)
         {
             Debug.Assert(_scenes.Contains(scene));
             _scenes.Remove(scene);
@@ -97,11 +97,11 @@ namespace PrimalEditor.GameProject1
             /// 重复，就是要把场景又加到_scenes 的对应的Index上；
             /// 
             AddSceneCommand = new RelayCommand<object>(x => {
-                AddSceneInternal($"New Scene{_scenes.Count+1}");
+                AddScene($"New Scene{_scenes.Count+1}");
                 var newscene = _scenes.Last();
                 var sceneIndex = _scenes.Count- 1;
                 undoRedo.Add(new UndoRedoAction(
-                    () => RemoveSceneInternal(newscene),
+                    () => RemoveScene(newscene),
                     () => _scenes.Insert(sceneIndex,newscene),
                     $"Add{newscene.Name}"
                     ));
@@ -110,10 +110,10 @@ namespace PrimalEditor.GameProject1
             RemoveSceneCommand = new RelayCommand<Scene>(
                 x => {
                     var sceneIndex = _scenes.IndexOf(x);
-                    RemoveSceneInternal(x);
+                    RemoveScene(x);
                     undoRedo.Add(new UndoRedoAction(
                         ()=>_scenes.Insert(sceneIndex,x),
-                        ()=>RemoveSceneInternal(x),
+                        ()=>RemoveScene(x),
                         $"Remove{x.Name}"
                         ));
                 },x=>!x.IsActive //限制如果这个场景正在active，则不能被remove。
