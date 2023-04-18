@@ -46,19 +46,19 @@ namespace PrimalEditor.GameProject1
         public ReadOnlyCollection<GameEntity> GameEntities { get; private set; }
 
         private void AddGameEntity(GameEntity entity) { 
-            Debug.Assert(entity != null);
+            Debug.Assert(!_gameentities.Contains(entity));
             _gameentities.Add(entity);
         }
 
         private void RemoveGameEntity(GameEntity entity)
         {
-            Debug.Assert(entity != null);   
+            Debug.Assert(_gameentities.Contains(entity));   
             _gameentities.Remove(entity);
         }
 
 
         public ICommand AddGameEntityCommand { get; private set; }
-
+        public ICommand RemoveGameEntityCommand { get;private set; }
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext streamingContext) {
@@ -80,12 +80,24 @@ namespace PrimalEditor.GameProject1
                     );
             });
 
+            RemoveGameEntityCommand = new RelayCommand<GameEntity>(x =>
+            {
+                var entityindex = _gameentities.IndexOf(x);
+                RemoveGameEntity(x);
+                Project.undoRedo.Add(new UndoRedoAction(
+                    () => _gameentities.Insert(entityindex, x),
+                    () => RemoveGameEntity(x),
+                    $"Remove {x.Name}"
+                    ));
+            });
+
             
         }
 
         public Scene(Project project,string name) { 
             Project = project;
             Name = name;
+            OnDeserialized(new StreamingContext());
         }
     }
 }
