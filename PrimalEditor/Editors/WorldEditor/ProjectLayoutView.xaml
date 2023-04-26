@@ -28,11 +28,13 @@
                         <Expander IsExpanded="{Binding IsActive,Mode=OneWay}">
                             <Expander.Header>
                                 <Grid>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                    <Button Content ="Remove" Command="{Binding DataContext.RemoveSceneCommand,RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                            CommandParameter="{Binding}"  Margin="100,0,0,0"  Focusable="False" Background="Red"
-                                            />
-                                    <Button Content="+" Command="{Binding AddGameEntityCommand}" IsEnabled="{Binding IsActive}" Click="OnAddGameEntity_Button_Click"/>
+                                    <StackPanel Orientation="Horizontal">
+                                         <TextBlock Text="{Binding Name}"></TextBlock>
+                                        <Button Content ="Remove" Command="{Binding DataContext.RemoveSceneCommand,RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                CommandParameter="{Binding}"  Margin="50,0,0,0"  Focusable="False" Background="Red"
+                                                />
+                                        <Button Content="+" IsEnabled="{Binding IsActive}" Click="OnAddGameEntity_Button_Click"/>
+                                    </StackPanel>
                                 </Grid>
                             </Expander.Header>
                             <ListBox ItemsSource="{Binding GameEntities}" IsEnabled="{Binding IsActive}"  SelectionMode="Extended">

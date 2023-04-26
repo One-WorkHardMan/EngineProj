@@ -1,4 +1,5 @@
-﻿using PrimalEditor.GameProject1;
+﻿using PrimalEditor.Components;
+using PrimalEditor.GameProject1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace PrimalEditor.Editors
         {
             var btn = sender as Button;
             var vm = btn.DataContext as Scene;
-
+            vm.AddGameEntityCommand.Execute(new GameEntity(vm) { Name = "Empty Game Entity." });
         }
 
         /*       

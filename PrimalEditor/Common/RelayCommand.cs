@@ -25,6 +25,7 @@ namespace PrimalEditor
         public bool CanExecute(object? parameter)
         {
             return _canexecute?.Invoke((T)parameter) ?? true;
+            // _canexecute为null？则返回 ？？ 右边的操作数true，_canexecute不为null，就执行Invoke((T)parameter)
         }
 
         public void Execute(object? parameter)
