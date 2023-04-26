@@ -27,13 +27,20 @@ namespace PrimalEditor.Editors
             InitializeComponent();
         }
 
-/*       
-           private void OnButtonClick(object sender,RoutedEventArgs e) { 
-            var vm = DataContext as Project;
+        private void OnAddGameEntity_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var vm = btn.DataContext as Scene;
 
-            vm.AddScene("New Scene"+vm.Scenes.Count);
-        }*/
-        
+        }
+
+        /*       
+                   private void OnButtonClick(object sender,RoutedEventArgs e) { 
+                    var vm = DataContext as Project;
+
+                    vm.AddScene("New Scene"+vm.Scenes.Count);
+                }*/
+
 
 
     }

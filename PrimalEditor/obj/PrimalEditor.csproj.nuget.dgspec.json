@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\VStudio_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj": {}
+    "E:\\Proj\\VS_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj": {}
   },
   "projects": {
-    "D:\\Project\\VStudio_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj": {
+    "E:\\Proj\\VS_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\VStudio_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj",
+        "projectUniqueName": "E:\\Proj\\VS_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj",
         "projectName": "PrimalEditor",
-        "projectPath": "D:\\Project\\VStudio_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj",
+        "projectPath": "E:\\Proj\\VS_Proj\\EngineProj\\PrimalEditor\\PrimalEditor.csproj",
         "packagesPath": "C:\\Users\\26295\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\VStudio_Proj\\EngineProj\\PrimalEditor\\obj\\",
+        "outputPath": "E:\\Proj\\VS_Proj\\EngineProj\\PrimalEditor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -62,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
